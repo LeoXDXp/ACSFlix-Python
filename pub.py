@@ -7,10 +7,17 @@ socket = context.socket(zmq.PUB)
 socket.setsockopt(zmq.LINGER, 0)    # discard unsent messages on close
 socket.bind('pgm://239.192.1.1:5000')
 
-while True:
-    msg = raw_input('> ')
-    if msg == 'quit':
-        break
-    else:
-        socket.send("+%s" %(msg) )
-socket.close()
+block_size = 1024
+
+try:
+    video = open("/root/video4k/Sony_4K_Camp.mp4","rb")
+    while block = video.read( block_size  ):
+        # Send  block
+        socket.send("+",ZMQ_SNDMORE )
+        socket.send( block  )
+except:
+    print "Error :D"
+
+finally:
+    video.close()
+    socket.close()
