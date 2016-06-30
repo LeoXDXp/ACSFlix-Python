@@ -15,11 +15,12 @@ try:
     while block:
         block = video.read( block_size  )
         # Send  block
-        socket.send("+", 1 ) # Enabling ZMQ_SNDMORE
-        socket.send( block  )
+        socket.send_multipart( ['+', block] ) # Enabling ZMQ_SNDMORE
 except Exception as e:
     print e
 
 finally:
+    socket.send_multipart( ['+', ""] )
     video.close()
     socket.close()
+    print "end"

@@ -11,14 +11,16 @@ try:
     video = open('testpython.mp4','wb')
     data = 1
     while data :
-        data = socket.recv_multipart()
-        #video.write( data )
+        identifier , data = socket.recv_multipart()
+        video.write( data )
         print data
 
 except Exception as e:
     print e
+    video.close()
+    socket.close()
 
 finally:
     video.close()
     socket.close()
-
+    print "end"
