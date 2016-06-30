@@ -15,10 +15,10 @@ try:
     while block:
         block = video.read( block_size  )
         # Send  block
-        socket.send("+",ZMQ_SNDMORE )
+        socket.send("+", 1 ) # Enabling ZMQ_SNDMORE
         socket.send( block  )
-except:
-    print "Error :D"
+except Exception as e:
+    print e
 
 finally:
     video.close()

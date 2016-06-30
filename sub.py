@@ -15,8 +15,8 @@ try:
         #video.write( data )
         print data
 
-except:
-    print "Error :D"
+except Exception as e:
+    print e
 
 finally:
     video.close()
