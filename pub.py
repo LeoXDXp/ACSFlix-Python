@@ -12,5 +12,5 @@ while True:
     if msg == 'quit':
         break
     else:
-        socket.send("+%d", %msg)
+        socket.send("+%d", %(msg) )
 socket.close()
