@@ -11,7 +11,9 @@ block_size = 1024
 
 try:
     video = open("/root/video4k/Sony_4K_Camp.mp4","rb")
-    while block = video.read( block_size  ):
+    block = 1
+    while block:
+        block = video.read( block_size  )
         # Send  block
         socket.send("+",ZMQ_SNDMORE )
         socket.send( block  )

@@ -9,7 +9,9 @@ socket.setsockopt(zmq.SUBSCRIBE, "+")
 
 try:
     video = open('testpython.mp4','wb')
-    while data = socket.recv_multipart():
+    data = 1
+    while data :
+        data = socket.recv_multipart()
         #video.write( data )
         print data
 
