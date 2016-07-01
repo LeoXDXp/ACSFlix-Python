@@ -12,7 +12,7 @@ counter = 1
 try:
     video = open('testpython.mp4','wb')
     
-while data :
+    while data :
         identifier , block_num, data = socket.recv_multipart()
         video.write( data )
         print counter
