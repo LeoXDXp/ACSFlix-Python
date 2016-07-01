@@ -1,4 +1,4 @@
-# consumer
+# subscriber
 
 import zmq
 
@@ -11,9 +11,9 @@ try:
     video = open('testpython.mp4','wb')
     data = 1
     while data :
-        identifier , data = socket.recv_multipart()
+        identifier , block_num, data = socket.recv_multipart()
         video.write( data )
-        print data
+        print block_num
 
 except Exception as e:
     print e
