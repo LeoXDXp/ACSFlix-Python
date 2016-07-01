@@ -15,7 +15,7 @@ try:
     while data :
         identifier , data = socket.recv_multipart()
         video.write( data )
-        print counter
+        print counter, len(data)
         counter += 1
 
 except Exception as e:
