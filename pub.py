@@ -18,7 +18,9 @@ try:
     while block_total > block_num:
         block = video.read( block_size  )
         # Send  block
-        socket.send_multipart( ['+',block_num, block] ) # Enabling ZMQ_SNDMORE
+        socket.send_multipart( ['+', block] ) # Enabling ZMQ_SNDMORE
+        print block_num 
+        block_num += 1
 
 except Exception as e:
     print e
