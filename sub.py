@@ -15,7 +15,6 @@ try:
         identifier , data, block_num = socket.recv_multipart(copy=False)
         video.write( data )
         print block_num
-        print data
 
 except Exception as e:
     print e
