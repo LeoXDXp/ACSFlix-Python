@@ -11,12 +11,10 @@ data = 1
 try:
     video = open('testpython.mp4','wb')
     
-    while data :
+    while len(data) :
         identifier , data, block_num = socket.recv_multipart()
         video.write( data )
         print block_num
-        if len(data) == 0:
-            break
 
 except Exception as e:
     print e
