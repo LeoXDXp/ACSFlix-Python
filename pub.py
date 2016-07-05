@@ -22,7 +22,7 @@ try:
         print block_num 
         block_num += 1
 
-except Exception as e:
+except Exception as e, KeyboardInterrupt:
     print e
 
 finally:
