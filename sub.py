@@ -1,6 +1,6 @@
 # subscriber
 
-import zmq
+import zmq,os
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
@@ -9,8 +9,12 @@ socket.setsockopt(zmq.SUBSCRIBE, "+")
 
 data = "!"
 data_received = 0
+videfile = "testpython.mp4"
+if os.path.exists(videofile)
+    os.remove(videofile)
+
 try:
-    video = open('testpython.mp4','wb')
+    video = open(videofile,'wb')
     
     while data :
         identifier , data, block_num = socket.recv_multipart(copy=False)
