@@ -10,7 +10,7 @@ socket.setsockopt(zmq.SUBSCRIBE, "+")
 data = "!"
 data_received = 0
 videfile = "testpython.mp4"
-if os.path.exists(videofile)
+if os.path.exists(videofile):
     os.remove(videofile)
 
 try:
