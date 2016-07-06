@@ -8,6 +8,7 @@ socket.connect('pgm://239.192.1.1:5000')
 socket.setsockopt(zmq.SUBSCRIBE, "+")
 
 data = "!"
+data_received = 0
 try:
     video = open('testpython.mp4','wb')
     
@@ -15,9 +16,11 @@ try:
         identifier , data, block_num = socket.recv_multipart(copy=False)
         video.write( data )
         print block_num
+        data_received += 1
 
 except (Exception, KeyboardInterrupt) as e:
     print e
+    print "packets received = %d, total packets = %d", %(data_received, block_num)
     video.close()
     socket.close()
 
