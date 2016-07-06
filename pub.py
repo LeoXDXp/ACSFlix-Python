@@ -7,13 +7,13 @@ socket = context.socket(zmq.PUB)
 socket.setsockopt(zmq.LINGER, 0)    # discard unsent messages on close
 socket.bind('pgm://239.192.1.1:5000')
 
-block_size = 512.0
+block_size = 256.0
 video_file = "/root/video4k/Sony_4K_Camp.mp4"
 
 try:
     video = open(video_file,"rb")
     # We multiply by the percent we want to send, in order to make tests shorter.
-    block_total = ( os.path.getsize(video_file) / block_size ) * 0.01
+    block_total = ( os.path.getsize(video_file) / block_size ) * 0.05
     block_num = 1
 
     while block_total > block_num:
@@ -29,4 +29,4 @@ except (Exception, KeyboardInterrupt) as e:
 finally:
     video.close()
     socket.close()
-    print "End. Packets sent: %d, B sent: %d, KB sent: %d " %(block_num  ,block_num * block_size, block_num * block_size / 1024)
+    print "End. Packets sent: %d, B sent: %d, MB sent: %d " %(block_num  ,block_num * block_size, block_num * block_size / 1024**2)
