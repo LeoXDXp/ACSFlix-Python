@@ -16,7 +16,7 @@ try:
         video.write( data )
         print block_num
 
-except Exception as e, KeyboardInterrupt:
+except (Exception, KeyboardInterrupt) as e:
     print e
     video.close()
     socket.close()
