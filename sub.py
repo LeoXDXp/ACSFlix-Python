@@ -24,7 +24,7 @@ try:
 
 except (Exception, KeyboardInterrupt) as e:
     print e
-    print "packets received = %d, total packets = %d", %(data_received, block_num)
+    print "packets received = %d, total packets = %d" %(data_received, block_num)
     video.close()
     socket.close()
 
