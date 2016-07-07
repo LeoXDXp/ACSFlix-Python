@@ -5,8 +5,8 @@ import zmq, os
 context = zmq.Context()
 socket = context.socket(zmq.PUB)
 socket.setsockopt(zmq.LINGER, 0)    # discard unsent messages on close
-#socket.bind('pgm://239.192.1.1:5000')
-socket.bind('tcp://10.10.3.161:5000')
+socket.bind('epgm://239.192.1.1:5000')
+#socket.bind('tcp://10.10.3.161:5000')
 
 block_size = 256.0
 video_file = "/root/video4k/Sony_4K_Camp.mp4"
