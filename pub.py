@@ -31,4 +31,4 @@ finally:
     socket.send_multipart( ['+', '', str(block_num)   ], copy=False )
     video.close()
     socket.close()
-    print "End. Packets sent: %d, B sent: %d, MB sent: %d " %(block_num  ,block_num * block_size, block_num * block_size / 1024**2)
+    print "End. Packets sent: %d, B sent: %d, MB sent: %f " %(block_num  ,block_num * block_size, block_num * block_size / 1024**2)
