@@ -26,12 +26,12 @@ try:
             break
 
 except (Exception, KeyboardInterrupt) as e:
-    print e
-    print "packets received = %d, total packets = %d" %(data_received, block_num)
+    print "Error e: %s .Packets received = %d, total packets = %d" %(e, data_received, block_num)
     video.close()
     socket.close()
 
 finally:
+    print "packets received = %d, total packets = %d" %(data_received, block_num)
     video.close()
     socket.close()
     print "end"

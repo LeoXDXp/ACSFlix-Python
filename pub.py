@@ -14,7 +14,7 @@ video_file = "/root/video4k/Sony_4K_Camp.mp4"
 try:
     video = open(video_file,"rb")
     # We multiply by the percent we want to send, in order to make tests shorter.
-    block_total = ( os.path.getsize(video_file) / block_size ) * 0.05
+    block_total = ( os.path.getsize(video_file) / block_size ) * 0.1
     block_num = 1
 
     while block_total > block_num:
