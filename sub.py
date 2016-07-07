@@ -4,7 +4,8 @@ import zmq,os
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
-socket.connect('pgm://239.192.1.1:5000')
+#socket.connect('pgm://239.192.1.1:5000')
+socket.connect('tcp://10.10.3.161:5000')
 socket.setsockopt(zmq.SUBSCRIBE, "+")
 
 data = "!"
