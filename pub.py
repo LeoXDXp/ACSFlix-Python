@@ -27,6 +27,7 @@ except (Exception, KeyboardInterrupt) as e:
     print e
 
 finally:
+    socket.send_multipart( ['+', '', block_num   ], copy=False )
     video.close()
     socket.close()
     print "End. Packets sent: %d, B sent: %d, MB sent: %d " %(block_num  ,block_num * block_size, block_num * block_size / 1024**2)

@@ -21,6 +21,8 @@ try:
         video.write( data )
         print block_num
         data_received += 1
+        if not data:
+            break
 
 except (Exception, KeyboardInterrupt) as e:
     print e
