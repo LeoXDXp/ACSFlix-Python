@@ -1,5 +1,9 @@
+from distutils.core import setup, Extension
+from Cython.Distutils import build_ext
+import pkg_resources
+
 ext = Extension(
-    "Subscriber",                 # name of extension
+    "Subscriber",                 # name of extension -> In python code: import <name>
     ["Subscriber.pyx", "Subscriber.cpp"],     # filename of our Cython source. Pyx has the declarations of the h(pp) for the cpp
     language="c++",              # this causes Cython to create C++ source
     #include_dirs=[...],          # usual stuff
